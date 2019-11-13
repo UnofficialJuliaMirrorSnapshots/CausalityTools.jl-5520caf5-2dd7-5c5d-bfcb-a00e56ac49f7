@@ -5,9 +5,9 @@ module CausalityTools
 
     export Dataset, trajectory, DiscreteDynamicalSystem, ContinuousDynamicalSystem
     export SVector, @SVector, MVector, @MVector
+    using Requires
 
     using Reexport
-    @reexport using TimeseriesSurrogates
     @reexport using CausalityToolsBase
     @reexport using StateSpaceReconstruction
     @reexport using PerronFrobenius
@@ -70,17 +70,15 @@ module CausalityTools
     # Example systems
     include("systems/Systems.jl")
 
-    # Surrogate wrappers for embeddings and Datasets
-    include("surrogates/surrogates.jl")
-
     # Wrappers of the different methods.
     include("method_wrappers/highlevel_methods.jl")
 
     # Various algorithsm that are implemented here and not in subpackages 
     include("algorithms/joint_distance_distribution.jl")
-    
+    include("algorithms/smeasure.jl")
+
     # High-level estimators 
-    include("causalitytests/causalitytests.jl")
+    include("causalitytests/causality_tests.jl")
 
     ################################################################
     # Integration with DynamicalSystems.jl (for all causality tests)
@@ -92,6 +90,13 @@ module CausalityTools
     ################################################################
     include("integration_uncertaindata/IntegrationUncertainData.jl")
     
+    
+    function __init__()
+        
+        # Surrogate wrappers for embeddings and Datasets
+        @require TimeseriesSurrogates="c804724b-8c18-5caa-8579-6025a0767c70" @eval include("surrogates/surrogates.jl")
+    end
+
     # Plot recipes, also for all sub-packages
     #include("plot_recipes/CausalityToolsPlotRecipes.jl")
 

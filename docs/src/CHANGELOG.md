@@ -1,5 +1,49 @@
 # Changelog for CausalityTools.jl
 
+## Release v0.6.0
+
+### New features
+
+- Added `SMeasureTest` causality test.
+- Added tutorial for `SMeasureTest`.
+
+### Documentation
+
+- Improved documentation.
+
+## Release v0.5.2
+
+### Documentation
+
+- Fixed documentation for `DiscreteSystemSetup`.
+- Added section in README on how to deal with SpecialFunction.jl build error.
+- Added `Pkg` to dependencies, so that build script executes properly.
+
+## Release v0.5.1
+
+### Tutorials
+
+- Added tutorial for `InterpolateBinTest`.
+
+### Documentation
+
+- Fixed documentation for `DiscreteSystemSetup`.
+
+## Release v0.5.0
+
+- Added `InterpolateBinTest`.
+- Added `RandomSequencesTest`.
+
+## Release v0.4.1
+
+### New functionality
+
+- Added `ConstrainedTest`.
+
+### Improvements
+
+- Better documentation for uncertain data causality tests.
+
 ## Release v0.4.0
 
 ### Bug fixes

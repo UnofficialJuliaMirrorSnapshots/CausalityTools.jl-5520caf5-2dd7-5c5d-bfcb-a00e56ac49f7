@@ -33,7 +33,9 @@ end
     include("causality_tests/test_scalarseries_ApproximateSimplexIntersectionTest.jl")
     include("causality_tests/test_scalarseries_ExactSimplexIntersectionTest.jl")
     include("causality_tests/test_scalarseries_PredictiveAsymmetryTest.jl")
+    include("causality_tests/test_scalarseries_SMeasure.jl")
 end
+
 
 @testset "DynamicalSystems.jl integration" begin
     include("causality_tests/integration_dynamicalsystems/test_integration_discrete_system.jl")
@@ -52,6 +54,12 @@ end
     include("causality_tests/integration_uncertaindata/test_uncertaindata_integration_PredictiveAsymmetryTest.jl")
 
     include("causality_tests/integration_uncertaindata/test_UncertainIndexValueDataset.jl")
+    
+    # High-level tests
+    include("causality_tests/highlevel_tests/test_ConstrainedTest.jl")
+    include("causality_tests/highlevel_tests/test_InterpolateBinTest.jl")
+    include("causality_tests/highlevel_tests/test_RandomSequencesTest.jl")
+
     include("causality_tests/integration_uncertaindata/test_uncertain_indexvalue_dataset_with_schemes.jl")
 
 end

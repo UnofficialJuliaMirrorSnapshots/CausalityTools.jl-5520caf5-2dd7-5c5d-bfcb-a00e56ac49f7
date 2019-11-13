@@ -1,6 +1,9 @@
 using CausalityTools
+using CausalityToolsBase
 using TimeseriesSurrogates
+using PerronFrobenius
 using PyCall, Conda
+using CrossMappings
 using HypothesisTests
 using Documenter, DocumenterMarkdown
 #Conda.add("scipy")
@@ -12,6 +15,7 @@ using Distributions
 using StaticArrays
 using Statistics
 using StatsBase
+using TransferEntropy
 using UncertainData
 
 ENV["GKSwstype"] = "100"
@@ -21,24 +25,35 @@ PAGES = [
     "Syntax overview" => "syntax_overview.md",
     "CHANGELOG.md",
     "Causality tests" => [
+        # From time series
         "causalitytests/causality_from_time_series.md",
+
+        # From uncertain data
+        "causalitytests/causality_from_uncertain_data_naive.md",
+        "causalitytests/causality_from_uncertain_data_binneddatacausalitytest.md",
+        "causalitytests/causality_from_uncertain_data_strictlyincreasing_interpolated.md",
+        "causalitytests/causality_from_uncertain_data_naive_constrained.md",
+        "causalitytests/causality_from_uncertain_data_InterpolateBinTest.md",
+        "causalitytests/causality_from_uncertain_data_RandomSequencesTest.md",
+        "causalitytests/causality_from_uncertain_data.md",
+
+        # From dynamical systems
         "causalitytests/causality_from_dynamical_systems.md",
+
+        # Tests
         "causalitytests/causality_tests.md",
-        "causalitytests/CausalityTest.md",
+
         "causalitytests/ConvergentCrossMappingTest.md",
         "causalitytests/CrossMappingTest.md",
-        "causalitytests/DistanceBasedCausalityTest.md",
-        "causalitytests/EntropyBasedCausalityTest.md",
         "causalitytests/JointDistanceDistributionTest.md",
-        "causalitytests/PredictiveAsymmetryTest.md",
-        "causalitytests/TransferEntropyTest.md",
+        "causalitytests/SMeasureTest.md",
+
         "causalitytests/TransferOperatorGridTest.md",
         "causalitytests/VisitationFrequencyTest.md",
         "causalitytests/ApproximateSimplexIntersectionTest.md",
         "causalitytests/ExactSimplexIntersectionTest.md",
 
-        "causalitytests/causality_from_uncertain_data.md",
-        "causalitytests/BinnedDataCausalityTest.md"
+        "causalitytests/PredictiveAsymmetryTest.md"
     ],
     "CausalityToolsBase" => [
         "Discretization" => "causalitytoolsbase/discretization.md",
@@ -81,13 +96,16 @@ PAGES = [
         "surrogates/randomshuffle_docs.md",
         "surrogates/surrogates_overview.md"
     ],
-
+    "UncertainData" => [
+        "uncertaindata/BinnedDataCausalityTest.md"
+    ],
     "Tutorials" => [
         "causality" => [
             "tutorials/list_of_tutorials.md",
             "tutorials/causality/binned_uncertain_data/tutorial_BinnedDataCausalityTest_PredictiveAsymmetryTest_BinnedResampling.md",
             "tutorials/causality/binned_uncertain_data/tutorial_BinnedDataCausalityTest_PredictiveAsymmetryTest_BinnedMeanResampling.md"
-        ]
+        ],
+        "tutorials/tutorial_SMeasureTest.md"
     ]
 ]
 
