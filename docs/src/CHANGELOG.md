@@ -1,5 +1,24 @@
 # Changelog for CausalityTools.jl
 
+## Release v0.7.0
+
+### Breaking changes
+
+- The `ν` parameter for the `ConvergentCrossMappingTest` and `CrossMappingTest` 
+    has been changed to `η` to conform with the syntax for transfer entropy tests.
+
+### New features
+
+- All subtypes of `CausalityTest` now have a type parameter `N` indicating
+    the number of elements that are returned when applying the tests.
+
+## Release v0.6.1
+
+### Documentation
+
+- Improved documentation on binning schems.
+- Improved documentation on delay reconstructions.
+
 ## Release v0.6.0
 
 ### New features
